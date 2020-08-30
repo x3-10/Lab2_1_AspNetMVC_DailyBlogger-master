@@ -1,0 +1,25 @@
+﻿@model List<Lab2_1_AspNetMVC_DailyBlogger.Models.BlogPost>
+
+@{
+    Layout = "_Layout";
+}
+
+    @foreach (var item in Model)
+    {
+        <!-- Blog entries -->
+        <div class="w3-col l8 s12">
+            <!-- Blog entry -->
+            <div class="w3-card-4 w3-margin w3-white">
+                <div class="w3-container">
+                    <a asp-controller="Blog" asp-action="Details" asp-route-id="@item.id"> @Html.DisplayFor(m => item.blogTitle) </a>
+                    @*<p>@Html.DisplayFor(m => item.content)</p>*@ @*commented out per instructions. this may be too long for some entries...added by th 08042020*@
+                    <p>@Html.DisplayFor(m => item.blogDate)</p>
+                </div>
+            </div>
+        </div>
+
+    }
+    
+    <div>
+        <a asp-action="New">Add a New Post</a>
+    </div>
